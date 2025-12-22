@@ -1,0 +1,44 @@
+<?php
+
+namespace App\Http\Requests;
+
+use Illuminate\Foundation\Http\FormRequest;
+
+class SliderImageRequest extends FormRequest
+{
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+        return true;
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        return [
+            'title' => ['required', 'string'],
+            'img' => ['sometimes', 'required', 'image', 'mimes:jpg,png,jpeg'],
+            'mobile_img' => ['nullable', 'image', 'mimes:jpg,png,jpeg'],
+            'caption' => ['required', 'string'],
+            'sup_text' => ['required', 'string'],
+            'link' => ['nullable', 'url'],
+            'link_text' => ['nullable', 'string'],
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'img.required' => "You must use the 'Choose file' button to select which file you wish to upload",
+            'img.uploaded' => "Maximum file size to upload is 2MB (2000 KB). If you are uploading a photo, try to reduce its resolution to make it under 2MB"
+        ];
+    }
+}
