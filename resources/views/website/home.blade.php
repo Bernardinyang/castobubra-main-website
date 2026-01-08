@@ -1,7 +1,7 @@
-<!DOCTYPE html>
+@php use App\Http\Services\DateHelperService; @endphp
+    <!DOCTYPE html>
 <html class="no-js" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-
     @include('partials.__meta_tags', [
         'description' => "At CAST Obubra, knowledge takes root and excellence grows. We don't just teach agriculture, science, and technology — we inspire innovators, empower communities, and raise leaders to shape a sustainable future",
         'title' => "College of Agriculture, Science and Technology, Obubra - Cross River State",
@@ -26,18 +26,23 @@
         @media (max-width: 767px) {
             @foreach($slider_images as $index => $slider_image)
                 @if($slider_image->mobile_img)
-                    .slider-slide-{{ $index }} {
-                        background-image: url('{{ asset('website_assets/img/slider-image/' . $slider_image->mobile_img) }}') !important;
-                    }
-                @endif
-            @endforeach
+                    .slider-slide-{{ $index }}  {
+                background-image: url('{{ asset('website_assets/img/slider-image/' . $slider_image->mobile_img) }}') !important;
+            }
+
+        @endif
+    @endforeach
+
         }
+
         @media (min-width: 768px) {
             @foreach($slider_images as $index => $slider_image)
-                .slider-slide-{{ $index }} {
-                    background-image: url('{{ asset('website_assets/img/slider-image/' . $slider_image->img) }}') !important;
-                }
-            @endforeach
+                .slider-slide-{{ $index }}  {
+                background-image: url('{{ asset('website_assets/img/slider-image/' . $slider_image->img) }}') !important;
+            }
+
+        @endforeach
+
         }
     </style>
 
@@ -136,10 +141,11 @@
         <div class="slider__wrapper swiper-container">
             <div class="swiper-wrapper">
                 @foreach($slider_images as $slider_image)
-                    <div class="single-slider swiper-slide slider__height slider__overlay d-flex align-items-center slider-slide-{{ $loop->index }}"
-                         style="background-position: center center;background-size: cover;background-repeat: no-repeat;"
-                         data-background="{{ asset('website_assets/img/slider-image/' . $slider_image->img) }}"
-                         data-mobile-background="{{ $slider_image->mobile_img ? asset('website_assets/img/slider-image/' . $slider_image->mobile_img) : asset('website_assets/img/slider-image/' . $slider_image->img) }}">
+                    <div
+                        class="single-slider swiper-slide slider__height slider__overlay d-flex align-items-center slider-slide-{{ $loop->index }}"
+                        style="background-position: center center;background-size: cover;background-repeat: no-repeat;"
+                        data-background="{{ asset('website_assets/img/slider-image/' . $slider_image->img) }}"
+                        data-mobile-background="{{ $slider_image->mobile_img ? asset('website_assets/img/slider-image/' . $slider_image->mobile_img) : asset('website_assets/img/slider-image/' . $slider_image->img) }}">
                         <div class="container">
                             <div class="row">
                                 <div class="col-xxl-7 col-xl-8 col-lg-9 col-md-9 col-sm-10">
@@ -196,14 +202,22 @@
                 <div class="col-md-6">
                     <div class="card mission">
                         <h2>Our Mission</h2>
-                        <p>Our mission is to provide knowledge and technical skills through training, research, and innovation in agriculture, science, technology, and allied sectors — fostering socio-economic development, entrepreneurship, and sustainability for Cross River State, Nigeria, and the global community.
+                        <p>Our mission is to provide knowledge and technical skills through training, research, and
+                            innovation in agriculture, science, technology, and allied sectors — fostering
+                            socio-economic development, entrepreneurship, and sustainability for Cross River State,
+                            Nigeria, and the global community.
                         </p>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="card vision">
                         <h2>Our Vision</h2>
-                        <p>To establish the College of Agriculture, Science and Technology, Obubra, as a globally recognized centre of excellence in research, innovation, and the training of highly skilled professionals, dedicated to advancing sustainable agricultural practices, promoting cutting-edge scientific research, and harnessing technological solutions that foster self-employment, drive entrepreneurship, increase income generation, and strengthen food security in response to state, national, and global challenges.
+                        <p>To establish the College of Agriculture, Science and Technology, Obubra, as a globally
+                            recognized centre of excellence in research, innovation, and the training of highly skilled
+                            professionals, dedicated to advancing sustainable agricultural practices, promoting
+                            cutting-edge scientific research, and harnessing technological solutions that foster
+                            self-employment, drive entrepreneurship, increase income generation, and strengthen food
+                            security in response to state, national, and global challenges.
                         </p>
                     </div>
                 </div>
@@ -255,69 +269,70 @@
     </section>
 
     @if($posts && $posts->count() > 0)
-    <section class="blog__area grey-bg pt-115 pb-130">
-        <div class="container">
-            <div class="row align-items-end">
-                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-8">
-                    <div class="section__title-wrapper mb-60">
-                        <h2 class="section__title">
+        <section class="blog__area grey-bg pt-115 pb-130">
+            <div class="container">
+                <div class="row align-items-end">
+                    <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-8">
+                        <div class="section__title-wrapper mb-60">
+                            <h2 class="section__title">
                             <span class="yellow-bg">News <img
                                     src="{{ asset('website_assets/img/shape/yellow-bg-2.png') }}" alt="">  </span> and
-                            Updates
-                        </h2>
-                        <p>You don't have to struggle alone, you've got our assistance and help.</p>
+                                Updates
+                            </h2>
+                            <p>You don't have to struggle alone, you've got our assistance and help.</p>
+                        </div>
+                    </div>
+                    <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-4">
+                        <div class="category__more mb-60 float-md-end fix">
+                            <a href="{{ route('website.news') }}" class="link-btn">
+                                View All News
+                                <i class="far fa-arrow-right"></i>
+                                <i class="far fa-arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-4">
-                    <div class="category__more mb-60 float-md-end fix">
-                        <a href="{{ route('website.news') }}" class="link-btn">
-                            View All News
-                            <i class="far fa-arrow-right"></i>
-                            <i class="far fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                @foreach($posts as $post)
-                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6">
-                        <div class="blog__item white-bg mb-30 transition-3 fix">
-                            <div class="blog__thumb w-img fix">
-                                <a href="{{ route('website.news.detail', $post->slug) }}">
-                                    <img src="{{ asset('website_assets/img/posts/' . $post->banner_img) }}"
-                                         alt="{{ $post->title }}">
-                                </a>
-                            </div>
-                            <div class="blog__content">
-                                <div class="blog__tag">
-                                    <a href="#">{{ $post->getCategory->name }}</a>
+                <div class="row">
+                    @foreach($posts as $post)
+                        <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6">
+                            <div class="blog__item white-bg mb-30 transition-3 fix">
+                                <div class="blog__thumb w-img fix">
+                                    <a href="{{ route('website.news.detail', $post->slug) }}">
+                                        <img src="{{ asset('website_assets/img/posts/' . $post->banner_img) }}"
+                                             alt="{{ $post->title }}">
+                                    </a>
                                 </div>
-                                <h3 class="blog__title"><a
-                                        href="{{ route('website.news.detail', $post->slug) }}">{{ $post->title }}</a>
-                                </h3>
-
-                                <div class="blog__meta d-flex align-items-center justify-content-between">
-                                    <div class="blog__author d-flex align-items-center">
-                                        <div class="blog__author-thumb mr-10">
-                                            <img src="{{ asset('website_assets/img/about/castobubra_favicon.jpg') }}"
-                                                 alt="">
-                                        </div>
-                                        <div class="blog__author-info">
-                                            <h5>CASTObubra</h5>
-                                        </div>
+                                <div class="blog__content">
+                                    <div class="blog__tag">
+                                        <a href="#">{{ $post->getCategory->name }}</a>
                                     </div>
-                                    <div class="blog__date d-flex align-items-center">
-                                        <i class="fal fa-clock"></i>
-                                        <span>{{ \App\Http\Services\DateHelperService::formatDateTwo($post->date_of_event) }}</span>
+                                    <h3 class="blog__title"><a
+                                            href="{{ route('website.news.detail', $post->slug) }}">{{ $post->title }}</a>
+                                    </h3>
+
+                                    <div class="blog__meta d-flex align-items-center justify-content-between">
+                                        <div class="blog__author d-flex align-items-center">
+                                            <div class="blog__author-thumb mr-10">
+                                                <img
+                                                    src="{{ asset('website_assets/img/about/castobubra_favicon.jpg') }}"
+                                                    alt="">
+                                            </div>
+                                            <div class="blog__author-info">
+                                                <h5>CASTObubra</h5>
+                                            </div>
+                                        </div>
+                                        <div class="blog__date d-flex align-items-center">
+                                            <i class="fal fa-clock"></i>
+                                            <span>{{ DateHelperService::formatDateTwo($post->date_of_event) }}</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
     @endif
 
     <section class="testimonial__area pt-145 pb-150"
@@ -374,23 +389,27 @@
                         </div>
                         <div class="testimonial__video-content d-sm-flex">
                             @if($student_community->icon)
-                            <div class="testimonial__video-icon mr-20 mb-20">
-                              <span style="display: flex; align-items: center; justify-content: center; color: #ffffff;">
+                                <div class="testimonial__video-icon mr-20 mb-20">
+                              <span
+                                  style="display: flex; align-items: center; justify-content: center; color: #ffffff;">
                                  <i class="{{ $student_community->icon }}" style="font-size: 25px;"></i>
                               </span>
-                            </div>
+                                </div>
                             @endif
                             <div class="testimonial__video-text">
                                 <h4>{{ $student_community->title }}</h4>
                                 @if($student_community->content)
-                                <p>{{ $student_community->content }}</p>
+                                    <p>{{ $student_community->content }}</p>
                                 @endif
                                 @if($student_community->button_text && $student_community->button_link)
-                                    <a href="{{ $student_community->button_link }}" class="btn btn-primary mt-3">{{ $student_community->button_text }}</a>
+                                    <a href="{{ $student_community->button_link }}"
+                                       class="btn btn-primary mt-3">{{ $student_community->button_text }}</a>
                                 @elseif($student_community->button_text)
-                                    <a href="{{ route('website.sug') }}" class="btn btn-primary mt-3">{{ $student_community->button_text }}</a>
+                                    <a href="{{ route('website.sug') }}"
+                                       class="btn btn-primary mt-3">{{ $student_community->button_text }}</a>
                                 @elseif($student_community->button_link)
-                                    <a href="{{ $student_community->button_link }}" class="btn btn-primary mt-3">Visit SUG</a>
+                                    <a href="{{ $student_community->button_link }}" class="btn btn-primary mt-3">Visit
+                                        SUG</a>
                                 @endif
                             </div>
                         </div>

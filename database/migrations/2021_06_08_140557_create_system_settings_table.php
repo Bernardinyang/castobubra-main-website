@@ -18,11 +18,11 @@ class CreateSystemSettingsTable extends Migration
             $table->string('fiat_base_currency')->default('NGN');
             $table->decimal('registration_amount', 10)->default(15000);
 
-            $table->string('app_url')->default('https://castobubra.edu.ng');
+            $table->string('app_url')->default('https://castobubra.ng');
             $table->string('app_name')->default('Cross River State College of Nursing and Midwifery Sciences');
-            $table->string('app_email')->default('info@castobubra.edu.ng');
-            $table->string('app_email_2')->default('complaint@castobubra.edu.ng')->nullable();
-            $table->string('app_email_3')->default('epayment@castobubra.edu.ng')->nullable();
+            $table->string('app_email')->default('info@castobubra.ng');
+            $table->string('app_email_2')->default('complaint@castobubra.ng')->nullable();
+            $table->string('app_email_3')->default('epayment@castobubra.ng')->nullable();
             $table->string('app_mobile_no_1')->default('+2348142209083');
             $table->string('app_mobile_no_2')->nullable();
             $table->string('app_location')->default('College Of Nursing ITIGIDI, ABI LGA, Cross River State, Nigeria');

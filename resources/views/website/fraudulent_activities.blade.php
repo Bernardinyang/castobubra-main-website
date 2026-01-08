@@ -133,8 +133,8 @@
             <code><a href="tel:08123934461">08123934461</a></code> - Technical issues
         </p>
         <p>
-            Email <code><a href="mailto:complaint@castobubra.edu.ng">complaint@castobubra.ng</a></code> |
-            <code><a href="mailto:info@castobubra.edu.ng">info@castobubra.ng</a></code>
+            Email <code><a href="mailto:complaint@castobubra.ng">complaint@castobubra.ng</a></code> |
+            <code><a href="mailto:info@castobubra.ng">info@castobubra.ng</a></code>
         </p>
     </div>
 @endsection

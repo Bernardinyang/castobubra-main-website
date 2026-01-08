@@ -70,6 +70,8 @@ Route::get('/application-guidelines', [WebsiteController::class, 'admissionForm'
 Route::get('/application-instruction', [WebsiteController::class, 'applicationInstruction'])->name('website.application_instruction');
 Route::get('/application', [\App\Http\Controllers\Website\ApplicationController::class, 'index'])->name('website.application');
 Route::post('/application', [\App\Http\Controllers\Website\ApplicationController::class, 'store'])->name('website.application.store');
+Route::get('/admission-checker', [\App\Http\Controllers\Website\ApplicationController::class, 'admissionChecker'])->name('website.admission_checker');
+Route::post('/admission-checker', [\App\Http\Controllers\Website\ApplicationController::class, 'checkAdmission'])->name('website.admission_checker.check');
 
 Route::get('/api/icons/search', [IconController::class, 'search'])->name('api.icons.search');
 

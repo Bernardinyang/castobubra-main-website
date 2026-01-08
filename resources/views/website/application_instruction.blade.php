@@ -97,7 +97,7 @@
                 </a>
             </div>
             <div class="col-md-4">
-                <a href="https://portal.castobubra.edu.ng/" target="_blank" style="background: #164734;color: #ffffff;"
+                <a href="https://portal.castobubra.ng/" target="_blank" style="background: #164734;color: #ffffff;"
                    class="course__tab-inner custom-course__tab mb-10 d-flex flex-column justify-content-center align-items-center text-center">
                     <h3 class="mb-0 text-uppercase text-white">Start<br> Application</h3>
                     <hr class="w-100 text-light">
@@ -107,7 +107,7 @@
                 </a>
             </div>
             <div class="col-md-4">
-                <a href="https://portal.castobubra.edu.ng/" target="_blank" style="background: #164734;color: #ffffff;"
+                <a href="https://portal.castobubra.ng/" target="_blank" style="background: #164734;color: #ffffff;"
                    class="course__tab-inner custom-course__tab mb-10 d-flex flex-column justify-content-center align-items-center text-center">
                     <h3 class="mb-0 text-uppercase text-white">Continue<br> Application</h3>
                     <hr class="w-100 text-light">

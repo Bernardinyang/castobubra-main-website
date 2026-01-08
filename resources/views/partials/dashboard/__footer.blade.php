@@ -13,7 +13,7 @@
                         <a class="nav-link" href="{{ route('website.about') }}">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://portal.castobubra.edu.ng" target="_blank">Student Portal</a>
+                        <a class="nav-link" href="https://portal.castobubra.ng" target="_blank">Student Portal</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('website.contact') }}">Contact</a>

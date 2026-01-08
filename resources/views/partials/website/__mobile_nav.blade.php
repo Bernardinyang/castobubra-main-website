@@ -19,6 +19,7 @@
             <li><a href="{{ route('website.requirement') }}">Entry Requirement</a></li>
             <li><a href="{{ route('website.fees') }}">Fees & Payment guide</a></li>
             <li><a href="{{ route('website.faq') }}">FAQ</a></li>
+            <li><a href="{{ route('website.admission_checker') }}">Check Admission Status</a></li>
         </ul>
     </li>
     <li class="has-dropdown">
@@ -34,17 +35,17 @@
     <li class="has-dropdown">
         <a href="javascript:void()">Alumni</a>
         <ul class="submenu">
-            <li><a href="#"">Alumni Networks</a></li>
-            <li><a href="#"">Alumni Activities</a></li>
-            <li><a href="#"">Give Back / Support CASTO</a></li>
+            <li><a href="#">Alumni Networks</a></li>
+            <li><a href="#">Alumni Activities</a></li>
+            <li><a href="#">Give Back / Support CASTO</a></li>
         </ul>
     </li>
     <li class="has-dropdown">
         <a href="javascript:void()">Portals</a>
         <ul class="submenu">
-            <li><a href="#"">Student Portal</a></li>
-            <li><a href="#"">Staff Portal</a></li>
-            <li><a href="#"">Transcript Portal</a></li>
+            <li><a href="#">Student Portal</a></li>
+            <li><a href="#">Staff Portal</a></li>
+            <li><a href="#">Transcript Portal</a></li>
         </ul>
     </li>
     <li><a href="{{ route('website.contact') }}">Get in Touch</a></li>

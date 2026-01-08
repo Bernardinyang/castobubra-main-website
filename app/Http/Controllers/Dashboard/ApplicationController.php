@@ -24,8 +24,16 @@ class ApplicationController extends Controller
 
     public function show($id): Factory|View|App
     {
+        $application = Application::with('programme')->where('id', $id)->first();
+        
+        // Paginate admission check logs separately
+        $admissionCheckLogs = $application->admissionCheckLogs()
+            ->latest()
+            ->paginate(5);
+        
         return view('user.application.view', [
-            'application' => Application::with('programme')->where('id', $id)->first()
+            'application' => $application,
+            'admissionCheckLogs' => $admissionCheckLogs
         ]);
     }
 
@@ -62,7 +70,7 @@ class ApplicationController extends Controller
             'ID', 'Unique ID', 'Surname', 'First Name', 'Other Name', 'Email', 'Phone Number',
             'Gender', 'Marital Status', 'State of Origin', 'Local Government', 'Current Address',
             'Programme', 'Status', 'Remarks', 'Submitted At',
-            'SSCE Certificate', 'Birth Certificate', 'Passport Photograph', 'Evidence of Payment', 'Other Uploads'
+            'SSCE Certificate', 'Birth Certificate', 'Passport Photograph', 'Evidence of Payment', 'JAMB Result', 'Other Uploads'
         ]);
 
         // Process each application
@@ -89,6 +97,7 @@ class ApplicationController extends Controller
                 $application->birth_certificate ? 'Yes' : 'No',
                 $application->passport_photograph ? 'Yes' : 'No',
                 $application->evidence_of_payment ? 'Yes' : 'No',
+                $application->jamb_result ? 'Yes' : 'No',
                 $application->other_uploads ? 'Yes' : 'No',
             ]);
 
@@ -128,6 +137,15 @@ class ApplicationController extends Controller
                 $sourcePath = public_path('website_assets/uploads/applications/payment/' . $application->evidence_of_payment);
                 if (File::exists($sourcePath)) {
                     $destPath = $appDir . '/evidence_of_payment.' . pathinfo($application->evidence_of_payment, PATHINFO_EXTENSION);
+                    File::copy($sourcePath, $destPath);
+                }
+            }
+
+            // Copy JAMB Result
+            if ($application->jamb_result) {
+                $sourcePath = public_path('website_assets/uploads/applications/jamb/' . $application->jamb_result);
+                if (File::exists($sourcePath)) {
+                    $destPath = $appDir . '/jamb_result.' . pathinfo($application->jamb_result, PATHINFO_EXTENSION);
                     File::copy($sourcePath, $destPath);
                 }
             }

@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+@php use App\Http\Services\HelperService; @endphp
+    <!DOCTYPE html>
 <html class="no-js" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
 
@@ -61,7 +62,7 @@
                                 @include('partials.website.__mobile_nav')
                             </nav>
                         </div>
-                        @if(\App\Http\Services\HelperService::getSettings()->is_registration_on)
+                        @if(HelperService::getSettings()->is_registration_on)
                             <div class="header__btn header__btn-2 ml-30 d-none d-sm-block">
                                 <a href="{{ route('website.application') }}" class="e-btn">Apply Now</a>
                             </div>
@@ -138,50 +139,47 @@
                                     style="background-color: #227353">
                                     Quick Links</h3>
                                 <ul class="quick_links_ul">
-                                    <li class="{{ \App\Http\Services\HelperService::isRoute('website.about') }}">
+                                    <li class="{{ HelperService::isRoute('website.about') }}">
                                         <a href="{{ route('website.about') }}">Our History</a>
                                     </li>
-                                    <li class="{{ \App\Http\Services\HelperService::isRoute('website.vision_and_mission') }}">
+                                    <li class="{{ HelperService::isRoute('website.vision_and_mission') }}">
                                         <a href="{{ route('website.vision_and_mission') }}">Vision & Mission</a>
                                     </li>
-                                    <li class="{{ \App\Http\Services\HelperService::isRoute('website.vision_and_mission') }}">
+                                    <li class="{{ HelperService::isRoute('website.vision_and_mission') }}">
                                         <a href="{{ route('website.vision_and_mission') }}#philosophy">Philosophy</a>
                                     </li>
-                                    <li class="{{ \App\Http\Services\HelperService::isRoute('website.our_identity') }}">
+                                    <li class="{{ HelperService::isRoute('website.our_identity') }}">
                                         <a href="{{ route('website.our_identity') }}">Our Identity</a>
                                     </li>
-                                    <li class="{{ \App\Http\Services\HelperService::isRoute('website.leadership') }}">
+                                    <li class="{{ HelperService::isRoute('website.leadership') }}">
                                         <a href="{{ route('website.leadership') }}">Governing Council</a>
                                     </li>
-                                    <li class="{{ \App\Http\Services\HelperService::isRoute('website.academic_board') }}">
+                                    <li class="{{ HelperService::isRoute('website.academic_board') }}">
                                         <a href="{{ route('website.academic_board') }}">Management Staff</a>
                                     </li>
-                                    <li class="{{ \App\Http\Services\HelperService::isRoute('website.organizational_chart') }}">
-                                        <a href="{{ route('website.organizational_chart') }}">Organizational Chart</a>
+                                    <li>
+                                        <a href="#">Organizational Chart</a>
                                     </li>
-                                    <li class="{{ \App\Http\Services\HelperService::isRoute('website.college_song') }}">
-                                        <a href="{{ route('website.college_song') }}">College Song</a>
+                                    <li>
+                                        <a href="#">College Song</a>
                                     </li>
-                                    <li class="{{ \App\Http\Services\HelperService::isRoute('website.requirement') }}">
+                                    <li class="{{ HelperService::isRoute('website.requirement') }}">
                                         <a href="{{ route('website.requirement') }}">Entry Requirement</a>
                                     </li>
-                                    <li class="{{ \App\Http\Services\HelperService::isRoute('website.application_guidelines') }}">
+                                    <li class="{{ HelperService::isRoute('website.application_guidelines') }}">
                                         <a href="{{ route('website.application_guidelines') }}">Application
                                             Guidelines</a>
                                     </li>
-                                    <li class="{{ \App\Http\Services\HelperService::isRoute('website.nd_hnd_nursing') }}">
-                                        <a href="{{ route('website.nd_hnd_nursing') }}">ND/HND Nursing</a>
-                                    </li>
-                                    <li class="{{ \App\Http\Services\HelperService::isRoute('website.fees') }}">
+                                    <li class="{{ HelperService::isRoute('website.fees') }}">
                                         <a href="{{ route('website.fees') }}">School Fees</a>
                                     </li>
-                                    <li class="{{ \App\Http\Services\HelperService::isRoute('website.departments') }}">
-                                        <a href="{{ route('website.departments') }}">Departments</a>
+                                    <li>
+                                        <a href="#">Departments</a>
                                     </li>
-                                    <li class="{{ \App\Http\Services\HelperService::isRoute('website.courses') }}">
-                                        <a href="{{ route('website.courses') }}">Courses</a>
+                                    <li>
+                                        <a href="#">Courses</a>
                                     </li>
-                                    <li class="{{ \App\Http\Services\HelperService::isRoute('website.faq') }}">
+                                    <li class="{{ HelperService::isRoute('website.faq') }}">
                                         <a href="{{ route('website.faq') }}">FAQ</a>
                                     </li>
                                 </ul>
@@ -224,7 +222,7 @@
     // Ensure jQuery is available before loading main.js
     if (typeof jQuery === 'undefined' || typeof $ === 'undefined') {
         console.error('jQuery is not available. Waiting...');
-        var checkJQuery = setInterval(function() {
+        var checkJQuery = setInterval(function () {
             if (typeof jQuery !== 'undefined') {
                 window.$ = window.jQuery = jQuery;
                 clearInterval(checkJQuery);
@@ -235,9 +233,9 @@
                 document.head.appendChild(script);
             }
         }, 50);
-        
+
         // Timeout after 5 seconds
-        setTimeout(function() {
+        setTimeout(function () {
             clearInterval(checkJQuery);
             if (typeof jQuery === 'undefined') {
                 console.error('jQuery failed to load after 5 seconds');

@@ -753,9 +753,15 @@ html {
    FORM VALIDATION STYLING
    ============================================ */
 
-.contact__form-input input:invalid:not(:placeholder-shown),
-.contact__form-input textarea:invalid:not(:placeholder-shown),
-.contact__form-input select:invalid:not(:placeholder-shown) {
+/* Prevent red border on select fields by default */
+.contact__form-input select:invalid {
+    border-color: #e8e9ed;
+}
+
+/* Only show invalid styling after form submission attempt */
+.was-validated .contact__form-input input:invalid:not(:placeholder-shown),
+.was-validated .contact__form-input textarea:invalid:not(:placeholder-shown),
+.was-validated .contact__form-input select:invalid {
     border-color: #dc3545;
 }
 

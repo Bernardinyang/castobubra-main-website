@@ -25,8 +25,8 @@
                                         @endphp
                                         @forelse($social_media as $social)
                                             <li>
-                                                <a href="{{ $social->url }}" 
-                                                   target="_blank" 
+                                                <a href="{{ $social->url }}"
+                                                   target="_blank"
                                                    rel="noopener noreferrer"
                                                    class="{{ $social->color_class ?? '' }}"
                                                    title="{{ $social->name }}">
@@ -89,6 +89,8 @@
                             <div class="footer__widget-body">
                                 <div class="footer__link">
                                     <ul>
+                                        <li><a href="{{ route('website.admission_checker') }}">Check Admission Status</a>
+                                        </li>
                                         <li><a href="#">Student Portal</a>
                                         </li>
                                         <li><a href="#">Staff Portal</a>
@@ -117,6 +119,8 @@
                                         <li><a href="#">Courses</a></li>
                                         <li><a href="{{ route('website.faq') }}">FAQ</a></li>
                                         <li><a href="#">Resources</a></li>
+                                        <li><a href="{{ route('website.application_guidelines') }}">Application
+                                                Guidelines</a></li>
                                         <li><a href="#">Academic
                                                 Calender</a></li>
                                     </ul>

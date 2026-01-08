@@ -26,6 +26,7 @@ class Application extends Model
         'birth_certificate',
         'passport_photograph',
         'evidence_of_payment',
+        'jamb_result',
         'other_uploads',
         'status',
         'remarks',
@@ -38,6 +39,11 @@ class Application extends Model
     public function programme()
     {
         return $this->belongsTo(Programme::class);
+    }
+
+    public function admissionCheckLogs()
+    {
+        return $this->hasMany(AdmissionCheckLog::class);
     }
 
     public function getFullNameAttribute()

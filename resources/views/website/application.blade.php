@@ -255,10 +255,29 @@
                                                 </small>
                                             </div>
                                         </div>
-                                        <div class="col-xxl-12">
+                                        <div class="col-xxl-6 col-xl-6 col-md-6">
+                                            <div class="contact__form-input file-upload-wrapper">
+                                                <label for="jamb_result">
+                                                    <i class="fas fa-file-alt"></i> JAMB Result <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="file-input-container">
+                                                    <input type="file" id="jamb_result" name="jamb_result" accept=".pdf,.jpg,.jpeg,.png" required class="file-input">
+                                                    <label for="jamb_result" class="file-label">
+                                                        <span class="file-label-text">Choose File</span>
+                                                        <span class="file-label-icon"><i class="fas fa-cloud-upload-alt"></i></span>
+                                                    </label>
+                                                    <div class="file-name-display" id="jamb_file_name"></div>
+                                                    <div class="file-preview" id="jamb_preview"></div>
+                                                </div>
+                                                <small class="form-text text-muted">
+                                                    <i class="fas fa-info-circle"></i> Max: 5MB (PDF, JPG, PNG)
+                                                </small>
+                                            </div>
+                                        </div>
+                                        <div class="col-xxl-6 col-xl-6 col-md-6">
                                             <div class="contact__form-input file-upload-wrapper">
                                                 <label for="other_uploads">
-                                                    <i class="fas fa-file-upload"></i> Other Uploads (if any)
+                                                    <i class="fas fa-file-upload"></i> Upload any other document (if any)
                                                 </label>
                                                 <div class="file-input-container">
                                                     <input type="file" id="other_uploads" name="other_uploads" accept=".pdf,.jpg,.jpeg,.png" class="file-input">
@@ -469,6 +488,7 @@
                 'birth_certificate': 'birth_preview',
                 'passport_photograph': 'passport_preview',
                 'evidence_of_payment': 'payment_preview',
+                'jamb_result': 'jamb_preview',
                 'other_uploads': 'other_preview'
             };
             
@@ -560,6 +580,11 @@
     }
     
     form?.addEventListener('submit', function(e) {
+        // Add was-validated class to show validation styling
+        if (!form.classList.contains('was-validated')) {
+            form.classList.add('was-validated');
+        }
+        
         const submitBtn = document.querySelector('.application-submit-btn');
         if (submitBtn && !submitBtn.disabled && loadingModal) {
             // Show loading modal
